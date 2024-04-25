@@ -74,6 +74,21 @@ CREATE TABLE Instruments.Percussion(
 );
 
 
+ALTER TABLE Instruments.Instrument
+ADD CONSTRAINT FK_Instrument_FabricantID FOREIGN KEY (FabricantID) REFERENCES Fabricants.Fabricant(FabricantID) ON DELETE CASCADE
+
+ALTER TABLE Instruments.Instrument
+ADD CONSTRAINT FK_Instrument_MateriauID FOREIGN KEY (MateriauID) REFERENCES Materiaux.Materiau(MateriauID) ON DELETE CASCADE
+
+ALTER TABLE Instruments.InstrumentVent
+ADD CONSTRAINT FK_InstrumentVent_InstrumentID FOREIGN KEY (InstrumentID) REFERENCES Instruments.Instrument(InstrumentID) ON DELETE CASCADE
+
+ALTER TABLE Instruments.InstrumentCorde
+ADD CONSTRAINT FK_InstrumentCorde_InstrumentID FOREIGN KEY (InstrumentID) REFERENCES Instruments.Instrument(InstrumentID) ON DELETE CASCADE
+
+ALTER TABLE Instruments.Percussion
+ADD CONSTRAINT FK_Percussion_InstrumentID FOREIGN KEY (InstrumentID) REFERENCES Instruments.Instrument(InstrumentID) ON DELETE CASCADE
+
 
 
 
