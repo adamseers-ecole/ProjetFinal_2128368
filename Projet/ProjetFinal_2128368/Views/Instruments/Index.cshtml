@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProjetFinal_2128368.Models.Instrument>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modele)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrixMoy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateInvention)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fabricant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Materiau)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modele)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrixMoy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateInvention)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricant.FabricantId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materiau.MateriauId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InstrumentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InstrumentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InstrumentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
