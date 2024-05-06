@@ -1,0 +1,5 @@
+Migrations:
+evolve migrate sqlserver -c "Server=.\SQLEXPRESS;Initial Catalog=BD_ProjetFinal;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Encrypt=False;Trust Server Certificate=False;Command Timeout=0" -s Instruments -s Materiaux -s Fabricants --target-version 1.6
+
+Force:
+dotnet ef dbcontext scaffold Name=BD_ProjetFinal Microsoft.EntityFrameworkCore.SqlServer -o Models -- context-dir Data --data-annotations --force
